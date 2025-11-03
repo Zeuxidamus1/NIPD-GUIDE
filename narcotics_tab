@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>NIPD — Narcotics Tool</title>
+  
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="title">NIPD — Narcotics Tool</h1>
+    <div id="root"></div>
+  </div>
+
+  <script>
+  (function(){
+    const h = React.createElement;
+    const { useState } = React;
+
+    /* Pill Identification Database */
+    const PILL_DB = [
+      { imprint: "M 30", color: "Blue", shape: "Round", drug: "Oxycodone 30mg", schedule: "CDS II" },
+      { imprint: "A 215", color: "Blue", shape: "Round", drug: "Oxycodone 30mg", schedule: "CDS II" },
+      { imprint: "K 9", color: "Blue", shape: "Round", drug: "Oxycodone 30mg", schedule: "CDS II" },
+      { imprint: "RP 30", color: "Blue", shape: "Round", drug: "Oxycodone 30mg", schedule: "CDS II" },
+      { imprint: "V 48 12", color: "Blue", shape: "Round", drug: "Oxycodone 30mg", schedule: "CDS II" },
+      { imprint: "M 523", color: "Green", shape: "Round", drug: "Oxycodone 15mg / Acetaminophen 325mg (Percocet)", schedule: "CDS II" },
+      { imprint: "RP 7.5 325", color: "Orange", shape: "Oval", drug: "Oxycodone 7.5mg / Acetaminophen 325mg (Percocet)", schedule: "CDS II" },
+      { imprint: "M 2", color: "White", shape: "Round", drug: "Hydromorphone 2mg (Dilaudid)", schedule: "CDS II" },
+      { imprint: "M 4", color: "Yellow", shape: "Round", drug: "Hydromorphone 4mg (Dilaudid)", schedule: "CDS II" },
+      { imprint: "M 8", color: "Pink", shape: "Round", drug: "Hydromorphone 8mg (Dilaudid)", schedule: "CDS II" },
+      { imprint: "54 582", color: "White", shape: "Round", drug: "Morphine Sulfate 30mg", schedule: "CDS II" },
+      { imprint: "M 30", color: "Purple", shape: "Round", drug: "Morphine Sulfate 30mg", schedule: "CDS II" },
+      { imprint: "M365", color: "White", shape: "Oval", drug: "Hydrocodone 5mg / Acetaminophen 325mg (Norco)", schedule: "CDS II" },
+      { imprint: "IP 109", color: "White", shape: "Oval", drug: "Hydrocodone 5mg / Acetaminophen 325mg (Norco)", schedule: "CDS II" },
+      { imprint: "M367", color: "White", shape: "Oval", drug: "Hydrocodone 10mg / Acetaminophen 325mg (Norco)", schedule: "CDS II" },
+      { imprint: "IP 110", color: "White", shape: "Oval", drug: "Hydrocodone 10mg / Acetaminophen 325mg (Norco)", schedule: "CDS II" },
+      { imprint: "R039", color: "Yellow", shape: "Rectangle", drug: "Alprazolam 2mg (Xanax Bar)", schedule: "CDS IV" },
+      { imprint: "X 2", color: "White", shape: "Rectangle", drug: "Alprazolam 2mg (Xanax Bar)", schedule: "CDS IV" },
+      { imprint: "GG 249", color: "White", shape: "Rectangle", drug: "Alprazolam 2mg (Xanax Bar)", schedule: "CDS IV" },
+      { imprint: "S 90 3", color: "Green", shape: "Rectangle", drug: "Alprazolam 2mg (Xanax Bar)", schedule: "CDS IV" },
+      { imprint: "B707", color: "Blue", shape: "Rectangle", drug: "Alprazolam 2mg (Xanax Bar)", schedule: "CDS IV" },
+      { imprint: "G 3722", color: "White", shape: "Rectangle", drug: "Alprazolam 2mg (Xanax Bar)", schedule: "CDS IV" },
+      { imprint: "XANAX 0.5", color: "Orange", shape: "Oval", drug: "Alprazolam 0.5mg", schedule: "CDS IV" },
+      { imprint: "XANAX 1.0", color: "Blue", shape: "Oval", drug: "Alprazolam 1mg", schedule: "CDS IV" },
+      { imprint: "C1", color: "Blue", shape: "Round", drug: "Clonazepam 1mg (Klonopin)", schedule: "CDS IV" },
+      { imprint: "C2", color: "White", shape: "Round", drug: "Clonazepam 2mg (Klonopin)", schedule: "CDS IV" },
+      { imprint: "TEVA 833", color: "Green", shape: "Round", drug: "Clonazepam 1mg (Klonopin)", schedule: "CDS IV" },
+      { imprint: "TEVA 834", color: "White", shape: "Round", drug: "Clonazepam 2mg (Klonopin)", schedule: "CDS IV" },
+      { imprint: "V 2531", color: "Orange", shape: "Round", drug: "Lorazepam 0.5mg (Ativan)", schedule: "CDS IV" },
+      { imprint: "V 2683", color: "White", shape: "Round", drug: "Lorazepam 1mg (Ativan)", schedule: "CDS IV" },
+      { imprint: "V 2684", color: "White", shape: "Round", drug: "Lorazepam 2mg (Ativan)", schedule: "CDS IV" },
+      { imprint: "10 V", color: "Yellow", shape: "Round", drug: "Diazepam 10mg (Valium)", schedule: "CDS IV" },
+      { imprint: "5 V", color: "Yellow", shape: "Round", drug: "Diazepam 5mg (Valium)", schedule: "CDS IV" },
+      { imprint: "2 V", color: "White", shape: "Round", drug: "Diazepam 2mg (Valium)", schedule: "CDS IV" },
+      { imprint: "E 8", color: "Peach", shape: "Round", drug: "Suboxone 8mg/2mg (Buprenorphine/Naloxone)", schedule: "CDS III" },
+      { imprint: "N 8", color: "White", shape: "Round", drug: "Suboxone 8mg/2mg (Buprenorphine/Naloxone)", schedule: "CDS III" },
+      { imprint: "54 411", color: "White", shape: "Round", drug: "Methadone 10mg", schedule: "CDS II" },
+      { imprint: "M 30", color: "White", shape: "Round", drug: "Amphetamine/Dextroamphetamine 30mg (Adderall)", schedule: "CDS II" },
+      { imprint: "AD 30", color: "Orange", shape: "Round", drug: "Amphetamine/Dextroamphetamine 30mg (Adderall)", schedule: "CDS II" },
+      { imprint: "CONCERTA 27", color: "Gray", shape: "Capsule", drug: "Methylphenidate 27mg (Concerta)", schedule: "CDS II" },
+      { imprint: "CONCERTA 54", color: "Red", shape: "Capsule", drug: "Methylphenidate 54mg (Concerta)", schedule: "CDS II" }
+    ];
+
+    /* Drug Slang Database */
+    const SLANG_DB = [
+      { term: "Molly", meaning: "MDMA/Ecstasy in powder or crystal form" },
+      { term: "Rolls", meaning: "MDMA/Ecstasy pills" },
+      { term: "X", meaning: "Ecstasy/MDMA" },
+      { term: "Bars", meaning: "Xanax (Alprazolam) 2mg pills" },
+      { term: "Footballs", meaning: "Xanax (Alprazolam) 1mg pills, oval shaped" },
+      { term: "Xannies", meaning: "Xanax (Alprazolam)" },
+      { term: "School Bus", meaning: "Yellow Xanax bars (R039)" },
+      { term: "Blue Boys", meaning: "Blue Xanax bars (B707) or Oxycodone 30mg" },
+      { term: "Pressed", meaning: "Counterfeit pills, often containing fentanyl" },
+      { term: "Percs", meaning: "Percocet (Oxycodone/Acetaminophen)" },
+      { term: "Roxys", meaning: "Roxicodone (Oxycodone 30mg)" },
+      { term: "Blues", meaning: "Oxycodone 30mg pills" },
+      { term: "M-Boxes", meaning: "Oxycodone 30mg with 'M 30' imprint" },
+      { term: "A51s", meaning: "Oxycodone 30mg with 'A 215' imprint" },
+      { term: "Pandas", meaning: "Oxymorphone/Opana" },
+      { term: "Dillys", meaning: "Dilaudid (Hydromorphone)" },
+      { term: "Vikes", meaning: "Vicodin (Hydrocodone/Acetaminophen)" },
+      { term: "Norco", meaning: "Hydrocodone/Acetaminophen" },
+      { term: "Ms", meaning: "Morphine pills" },
+      { term: "Subs", meaning: "Suboxone (Buprenorphine)" },
+      { term: "Strips", meaning: "Suboxone film strips" },
+      { term: "Juice", meaning: "Methadone liquid" },
+      { term: "Lean", meaning: "Codeine/Promethazine syrup mixed with soda" },
+      { term: "Drank", meaning: "Codeine/Promethazine syrup (lean)" },
+      { term: "Purple Drank", meaning: "Codeine/Promethazine syrup mixture" },
+      { term: "Boy", meaning: "Heroin" },
+      { term: "H", meaning: "Heroin" },
+      { term: "Tar", meaning: "Black tar heroin" },
+      { term: "China White", meaning: "High-purity heroin or fentanyl" },
+      { term: "Girl", meaning: "Cocaine" },
+      { term: "Blow", meaning: "Cocaine" },
+      { term: "Yayo", meaning: "Cocaine" },
+      { term: "Snow", meaning: "Cocaine" },
+      { term: "White", meaning: "Cocaine" },
+      { term: "Soft", meaning: "Cocaine powder" },
+      { term: "Hard", meaning: "Crack cocaine" },
+      { term: "Rock", meaning: "Crack cocaine" },
+      { term: "Ice", meaning: "Methamphetamine (crystal form)" },
+      { term: "Glass", meaning: "Methamphetamine" },
+      { term: "Tina", meaning: "Methamphetamine" },
+      { term: "Crank", meaning: "Methamphetamine" },
+      { term: "Shards", meaning: "Methamphetamine crystals" },
+      { term: "Dope", meaning: "Heroin or Marijuana (context dependent)" },
+      { term: "Weed", meaning: "Marijuana" },
+      { term: "Bud", meaning: "Marijuana" },
+      { term: "Tree", meaning: "Marijuana" },
+      { term: "Gas", meaning: "High-quality marijuana" },
+      { term: "Loud", meaning: "High-quality marijuana" },
+      { term: "Pack", meaning: "Large quantity of marijuana" },
+      { term: "Cart", meaning: "THC vape cartridge" },
+      { term: "Dabs", meaning: "Marijuana concentrates (wax, shatter)" },
+      { term: "Wax", meaning: "Marijuana concentrate" },
+      { term: "Shatter", meaning: "Marijuana concentrate" },
+      { term: "K2", meaning: "Synthetic cannabinoid" },
+      { term: "Spice", meaning: "Synthetic cannabinoid" },
+      { term: "Fake Weed", meaning: "Synthetic cannabinoid" },
+      { term: "Addy", meaning: "Adderall" },
+      { term: "Speed", meaning: "Amphetamine/Methamphetamine" },
+      { term: "Uppers", meaning: "Stimulants (Adderall, cocaine, meth)" },
+      { term: "Downers", meaning: "Depressants (Xanax, opioids)" },
+      { term: "Special K", meaning: "Ketamine" },
+      { term: "K", meaning: "Ketamine" },
+      { term: "Acid", meaning: "LSD" },
+      { term: "Tabs", meaning: "LSD tabs" },
+      { term: "Lucy", meaning: "LSD" },
+      { term: "Shrooms", meaning: "Psilocybin mushrooms" },
+      { term: "Boomers", meaning: "Psilocybin mushrooms" },
+      { term: "Hot", meaning: "Containing fentanyl or being watched by police" },
+      { term: "Fent", meaning: "Fentanyl" },
+      { term: "Fetty", meaning: "Fentanyl" },
+      { term: "Carfent", meaning: "Carfentanil (elephant tranquilizer)" },
+      { term: "Narcan", meaning: "Naloxone (opioid overdose reversal)" },
+      { term: "Plug", meaning: "Drug dealer/supplier" },
+      { term: "Trap", meaning: "Drug dealing location" },
+      { term: "Re-up", meaning: "Restock drug supply" },
+      { term: "Cook", meaning: "Prepare drugs (crack, meth)" },
+      { term: "Cut", meaning: "Dilute or mix drugs with other substances" },
+      { term: "Stepped On", meaning: "Drugs cut with other substances" }
+    ];
+
+    function NarcoticsApp() {
+      const [activeSection, setActiveSection] = useState('pills');
+      const [pillImprint, setPillImprint] = useState('');
+      const [pillColor, setPillColor] = useState('');
+      const [pillShape, setPillShape] = useState('');
+      const [pillResults, setPillResults] = useState([]);
+      const [slangSearch, setSlangSearch] = useState('');
+      const [slangResults, setSlangResults] = useState([]);
+
+      const searchPills = () => {
+        const results = PILL_DB.filter(pill => {
+          const imprintMatch = !pillImprint || pill.imprint.toLowerCase().includes(pillImprint.toLowerCase());
+          const colorMatch = !pillColor || pill.color.toLowerCase() === pillColor.toLowerCase();
+          const shapeMatch = !pillShape || pill.shape.toLowerCase() === pillShape.toLowerCase();
+          return imprintMatch && colorMatch && shapeMatch;
+        });
+        setPillResults(results);
+      };
+
+      const searchSlang = () => {
+        const searchTerm = slangSearch.toLowerCase();
+        const results = SLANG_DB.filter(item => 
+          item.term.toLowerCase().includes(searchTerm) || 
+          item.meaning.toLowerCase().includes(searchTerm)
+        );
+        setSlangResults(results);
+      };
+
+      return h('div', null,
+        h('div', { className: 'nav-buttons' },
+          h('button', {
+            className: `nav-button ${activeSection === 'pills' ? 'active' : ''}`,
+            onClick: () => setActiveSection('pills')
+          }, 'Pill Identification'),
+          h('button', {
+            className: `nav-button ${activeSection === 'slang' ? 'active' : ''}`,
+            onClick: () => setActiveSection('slang')
+          }, 'Drug Slang')
+        ),
+
+        // Pill Identification Section
+        h('div', { className: `section ${activeSection === 'pills' ? 'active' : ''}` },
+          h('div', { className: 'card' },
+            h('h3', null, 'Pill Identification Tool'),
+            h('div', { className: 'small muted', style: { marginBottom: '15px' } }, 
+              'Search by imprint, color, and/or shape. Leave fields blank to see all results.'
+            ),
+            
+            h('div', { className: 'input-row' },
+              h('label', null, 'Imprint (letters/numbers on pill):'),
+              h('input', {
+                type: 'text',
+                value: pillImprint,
+                onChange: (e) => setPillImprint(e.target.value),
+                placeholder: 'e.g., M 30, A 215, R039'
+              })
+            ),
+
+            h('div', { className: 'input-row' },
+              h('label', null, 'Color:'),
+              h('select', {
+                value: pillColor,
+                onChange: (e) => setPillColor(e.target.value)
+              },
+                h('option', { value: '' }, '-- Any Color --'),
+                h('option', { value: 'Blue' }, 'Blue'),
+                h('option', { value: 'White' }, 'White'),
+                h('option', { value: 'Yellow' }, 'Yellow'),
+                h('option', { value: 'Orange' }, 'Orange'),
+                h('option', { value: 'Green' }, 'Green'),
+                h('option', { value: 'Pink' }, 'Pink'),
+                h('option', { value: 'Purple' }, 'Purple'),
+                h('option', { value: 'Red' }, 'Red'),
+                h('option', { value: 'Gray' }, 'Gray'),
+                h('option', { value: 'Peach' }, 'Peach')
+              )
+            ),
+
+            h('div', { className: 'input-row' },
+              h('label', null, 'Shape:'),
+              h('select', {
+                value: pillShape,
+                onChange: (e) => setPillShape(e.target.value)
+              },
+                h('option', { value: '' }, '-- Any Shape --'),
+                h('option', { value: 'Round' }, 'Round'),
+                h('option', { value: 'Oval' }, 'Oval'),
+                h('option', { value: 'Rectangle' }, 'Rectangle'),
+                h('option', { value: 'Capsule' }, 'Capsule')
+              )
+            ),
+
+            h('button', { onClick: searchPills }, 'Search Pills')
+          ),
+
+          pillResults.length > 0 && h('div', { className: 'result-box' },
+            h('h4', null, `Found ${pillResults.length} result(s):`),
+            pillResults.map((pill, idx) =>
+              h('div', { key: idx, className: 'pill-result' },
+                h('strong', null, pill.drug),
+                h('div', { style: { marginTop: '8px' } },
+                  h('div', null, `Imprint: ${pill.imprint}`),
+                  h('div', null, `Color: ${pill.color}`),
+                  h('div', null, `Shape: ${pill.shape}`),
+                  h('div', null, `Schedule: ${pill.schedule}`)
+                )
+              )
+            )
+          )
+        ),
+
+        // Drug Slang Section
+        h('div', { className: `section ${activeSection === 'slang' ? 'active' : ''}` },
+          h('div', { className: 'card' },
+            h('h3', null, 'Drug Slang Dictionary'),
+            h('div', { className: 'small muted', style: { marginBottom: '15px' } }, 
+              'Search for street names and slang terms for drugs.'
+            ),
+            
+            h('div', { className: 'input-row' },
+              h('label', null, 'Search Term:'),
+              h('input', {
+                type: 'text',
+                value: slangSearch,
+                onChange: (e) => setSlangSearch(e.target.value),
+                placeholder: 'e.g., molly, bars, percs',
+                onKeyPress: (e) => { if (e.key === 'Enter') searchSlang(); }
+              })
+            ),
+
+            h('button', { onClick: searchSlang }, 'Search Slang')
+          ),
+
+          slangResults.length > 0 && h('div', { className: 'result-box' },
+            h('h4', null, `Found ${slangResults.length} result(s):`),
+            slangResults.map((item, idx) =>
+              h('div', { key: idx, className: 'slang-result' },
+                h('div', { className: 'term' }, item.term),
+                h('div', { className: 'meaning' }, item.meaning)
+              )
+            )
+          )
+        )
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(h(NarcoticsApp));
+  })();
+  </script>
+</body>
+</html>
