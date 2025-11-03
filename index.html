@@ -3710,19 +3710,6 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 <script>
 (function(){
-  // 1) Inject tiny CSS for a layered memo modal (sits ABOVE the Case Law modal)
-  if(!document.getElementById('levels-memo-style')){
-    var css = document.createElement('style');
-    css.id = 'levels-memo-style';
-    css.textContent =
-      '#levels-memo-backdrop{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;z-index:100002;background:rgba(17,24,39,.48)}' +
-      '#levels-memo{width:min(900px,96vw);background:#fff;border-radius:16px;border:1px solid #e5e7eb;box-shadow:0 20px 40px rgba(0,0,0,.25);overflow:hidden}' +
-      '#levels-memo .hd{padding:14px 16px;background:#1f4db8;color:#fff;display:flex;align-items:center;justify-content:space-between}' +
-      '#levels-memo .title{margin:0;font-size:18px;font-weight:800}' +
-      '#levels-memo .x{appearance:none;border:none;background:rgba(255,255,255,.15);color:#fff;padding:8px 12px;border-radius:10px;font-weight:700;cursor:pointer}' +
-    document.head.appendChild(css);
-  }
-
   // 2) Exact memo text you provided
   var LEVELS_MEMO_TEXT =
     'A. Levels of Encounters\n' +
