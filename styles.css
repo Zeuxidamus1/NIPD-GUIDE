@@ -188,7 +188,7 @@
 #levels-memo .title{margin:0;font-size:18px;font-weight:800}
 #levels-memo .x{appearance:none;border:none;background:rgba(255,255,255,.2);color:#fff;padding:6px 12px;border-radius:8px;font-weight:700;cursor:pointer}
 #levels-memo .x:hover{background:rgba(255,255,255,.35)}
-#levels-memo .bd{padding:18px 24px;max-height:72vh;overflow:auto;background:#f9fafb;color:#111827;line-height:1.6;font-size:15px}
+#levels-memo .bd{padding:18px 24px;max-height:72vh;overflow:auto;background:#f9fafb;color:#111827;line-height:1.6;font-size:15px;gap:16px;display:grid}
 #levels-memo .card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:14px 18px;margin-bottom:14px;box-shadow:0 2px 4px rgba(0,0,0,.04)}
 #levels-memo .card h5{margin:0 0 6px;color:#1f4db8;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.4px}
 #levels-memo .card p{margin:0 0 6px;font-size:14.5px}
