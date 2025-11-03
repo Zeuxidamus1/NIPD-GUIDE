@@ -1,0 +1,195 @@
+
+    :root {
+      --brand:#1f4db8; --brand-700:#1b3f92; --brand-100:#e8efff;
+      --ink:#111827; --muted:#6b7280; --line:#e5e7eb; --bg:#f7f8fb;
+      --btn:#1f4db8; --btn-text:#fff; --btn-muted:#e5e7eb; --btn-muted-text:#111827;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,'Noto Sans',sans-serif}
+    .container{max-width:1200px;margin:0 auto;padding:24px}
+    .title{font-size:28px;font-weight:800;text-align:center;margin:8px 0 24px;color:var(--brand)}
+    .section{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:20px;box-shadow:0 6px 22px rgba(0,0,0,.05)}
+    .section h2{margin:0 0 10px;font-size:20px}
+    .hr{height:1px;background:var(--line);border:0;margin:16px 0}
+    .btn{display:inline-flex;justify-content:center;align-items:center;padding:.65rem 1rem;border:1px solid var(--btn);border-radius:12px;background:var(--btn);color:var(--btn-text);cursor:pointer;font-weight:600;letter-spacing:.1px}
+    .btn:hover{background:var(--brand-700);border-color:var(--brand-700)}
+    .btn:active{transform:translateY(1px)}
+    .btn.ghost{background:#fff;border-color:var(--btn-muted);color:var(--btn-muted-text)}
+    .btn.ghost:hover{background:#f3f4f6}
+    .btn:disabled{opacity:.45;cursor:not-allowed}
+    .small{font-size:.9rem;color:#374151}
+    .muted{color:#6b7280}
+    .card{border:1px solid var(--line);border-radius:16px;background:#fff;padding:16px;box-shadow:0 1px 0 rgba(0,0,0,.02)}
+    .pills{display:flex;flex-wrap:wrap;gap:.5rem}
+    .pill{padding:.5rem .8rem;border:1px solid #cbd5e1;border-radius:999px;background:#fff;font-size:.95rem;cursor:pointer;color:#111}
+    .pill.active{background:var(--brand);border-color:var(--brand);color:#fff}
+    .pill.toggle{min-width:88px;text-align:center}
+    .input{width:100%;padding:.6rem .8rem;border:1px solid #cbd5e1;border-radius:10px;background:#fff;font-size:.95rem}
+    .input-row{display:grid;grid-template-columns:1fr 220px;gap:.6rem;align-items:center}
+:root {
+  --brand-100: #aab4d2; /* light blue tint for active tab */
+  --ink: #595a5b;       /* default text color */
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.tabs .btn {
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 8px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.tabs .btn:hover:not(.active) {
+  background: #f5f6fa;
+}
+
+.tabs .btn.active {
+  background: var(--brand-100);
+  border-color: #b4c6ff;
+  color: #0f2166;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.06);
+  
+}
+
+    .navrow{margin-top:12px;display:flex;gap:.5rem}
+    .conv{margin-top:10px;border:1px dashed #cbd5e1;border-radius:12px;padding:10px;background:#fbfdff}
+    .conv li{margin:4px 0}
+    a.lawlink{color:#1d4ed8;text-decoration:none}
+    a.lawlink:hover{text-decoration:underline}
+    .summary-wrap{background:linear-gradient(180deg,#eef3ff 0%, #f7f9ff 100%);border:1px solid var(--line);border-radius:16px;padding:12px}
+    .summary-wrap h3{color:#0f2166;margin:0 0 .5rem;font-size:1rem}
+  
+/* === Schedule badges for Pill Lookup === */
+.pill-badge{display:inline-block;padding:2px 6px;border-radius:999px;font-size:11px;line-height:1; margin-left:6px; color:#fff;}
+.schedule-II{background:#c0392b;}      /* red */
+.schedule-III{background:#e67e22;}     /* orange */
+.schedule-IV{background:#2980b9;}      /* blue */
+.schedule-V{background:#8e44ad;}       /* purple */
+.schedule-NOTCONTROLLED,.schedule-NA{background:#7f8c8d;} /* gray */
+
+
+/* Danger button for destructive actions */
+.btn.danger{background:#c0392b;color:#fff;border-color:#c0392b}
+.btn.danger:disabled{opacity:.5;cursor:not-allowed}
+
+
+/* --- Modal for searchable traffic list --- */
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center;z-index:9999}
+.modal{width:min(720px,92vw);background:#fff;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.25);padding:16px}
+.modal h3{margin:.25rem 0 .75rem}
+.modal .input{width:100%}
+.results{max-height:340px;overflow:auto;margin-top:10px;border:1px solid #e5e7eb;border-radius:12px}
+.result-item{padding:10px 12px;border-bottom:1px solid #f1f5f9;cursor:pointer}
+.result-item:hover{background:#f7faff}
+.result-sub{font-size:.85rem;color:#6b7280}
+.modal-actions{display:flex;gap:.5rem;justify-content:flex-end;margin-top:12px}
+
+
+/* --- Selected traffic list --- */
+.selected-list{margin-top:12px;border-top:1px solid #e5e7eb;padding-top:10px}
+.selected-item{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 10px;border:1px solid #e5e7eb;border-radius:999px;margin:6px 6px 0 0}
+.selected-item .label{font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:72vw}
+.selected-remove{border:none;cursor:pointer;background:#fee2e2;border:1px solid #fecaca;border-radius:999px;padding:4px 8px}
+.selected-remove:hover{background:#fecaca}
+
+
+/* === Case Law button stays neutral (not active) === */
+#tab-btn-caselaw-REMOVED {
+  background: #fff !important;
+  border-color: #cbd5e1 !important;
+  color: var(--ink) !important;
+}
+#tab-btn-caselaw-REMOVED:hover {
+  background: #f5f6fa !important;
+}
+
+
+
+
+/* Pill legend hidden by default; shown only when toggled */
+.pill-legend { display: none; margin-top: 8px; font-size: 0.9rem; color: #374151; transition: opacity .2s ease-in-out; }
+.pill-legend.show { display: block; opacity: 1; }
+.pill-legend-toggle { background: none; border: none; color: #2563eb; cursor: pointer; font-weight: 600; }
+.pill-legend-toggle:hover { text-decoration: underline; }
+.pill-legend-toggle-wrap { text-align: right; margin-bottom: 6px; }
+
+
+
+/* === Case Law Modal (scoped .clx-*) === */
+.clx-backdrop{position:fixed;inset:0;background:rgba(17,24,39,.54);display:none;align-items:center;justify-content:center;padding:24px;z-index:99999}
+.clx-backdrop.show{display:flex;animation:clx-fade .15s ease both}
+@keyframes clx-fade{from{opacity:0}to{opacity:1}}
+.clx-modal{width:min(1000px,96vw);background:#fff;border-radius:16px;border:1px solid #e5e7eb;box-shadow:0 20px 40px rgba(17,24,39,.2);overflow:hidden}
+.clx-hd{padding:14px 16px;background:#1f4db8;color:#fff;display:flex;align-items:center;justify-content:space-between}
+.clx-title{margin:0;font-size:18px;font-weight:800}
+.clx-xbtn{appearance:none;border:none;background:rgba(255,255,255,.15);color:#fff;padding:8px 10px;border-radius:10px;font-weight:700;cursor:pointer}
+.clx-bd{padding:16px;max-height:74vh;overflow:auto;background:#fff}
+
+/* Accordion */
+.clx-acc{border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;background:#fff}
+.clx-acc + .clx-acc{margin-top:10px}
+.clx-acc-h{width:100%;text-align:left;border:none;background:#fff;padding:14px 16px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-weight:800;font-size:15px;transition:background .15s ease}
+.clx-acc-h:hover{background:#e8efff}
+.clx-chev{transition:transform .18s ease}
+.clx-acc.open .clx-chev{transform:rotate(90deg)}
+.clx-acc-p{overflow:hidden;max-height:0;transition:max-height .22s ease;border-top:1px dashed #e5e7eb;background:#fff}
+.clx-acc-in{padding:10px 12px}
+.clx-sub{display:block;padding:10px 12px;border-radius:10px;text-decoration:none;color:#111827;font-weight:600}
+.clx-sub small{display:block;color:#6b7280;font-weight:500}
+.clx-sub:hover{background:#e8efff}
+
+/* Top bar button */
+#clx-open-btn{display:inline-flex;gap:8px;align-items:center;margin:6px 0 12px;border:1px solid #cbd5e1;border-radius:12px;padding:8px 12px;background:#fff;color:#111827;cursor:pointer;font-weight:600}
+#clx-open-btn:hover{background:#f5f6fa}
+
+
+
+/* === Pill Lookup legend: hidden by default; only shown via manual toggle === */
+.pill-legend { display: none; margin-top: 8px; font-size: 0.9rem; color: #374151; transition: opacity .2s ease-in-out; }
+.pill-legend.show { display: block; opacity: 1; }
+.pill-legend-toggle { background: none; border: none; color: #2563eb; cursor: pointer; font-weight: 600; }
+.pill-legend-toggle:hover { text-decoration: underline; }
+.pill-legend-toggle-wrap { text-align: right; margin-bottom: 6px; }
+
+
+
+/* Qty input styling for selected pill cards */
+.pill-amount {
+  width: 70px;
+  border: 1.5px solid #1f4db8;
+  border-radius: 8px;
+  padding: 4px 6px;
+  text-align: center;
+  font-weight: 600;
+  background: #fff;
+}
+.pill-amount:focus {
+  outline: none;
+  border-color: #1b3f92;
+  box-shadow: 0 0 0 3px rgba(31,77,184,0.18);
+}
+
+
+
+/* === Tactical Briefing Styling for Levels Modal === */
+#levels-memo-backdrop{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;z-index:100002;background:rgba(17,24,39,.48)}
+#levels-memo{width:min(850px,96vw);background:#fdfdfd;border-radius:20px;border:1px solid #d1d5db;box-shadow:0 16px 50px rgba(0,0,0,.25);overflow:hidden;font-family:'Segoe UI',Roboto,system-ui,-apple-system,'Helvetica Neue',Arial}
+#levels-memo .hd{padding:14px 18px;background:linear-gradient(90deg,#1f4db8 0%,#244ccf 100%);color:#fff;display:flex;align-items:center;justify-content:space-between}
+#levels-memo .title{margin:0;font-size:18px;font-weight:800}
+#levels-memo .x{appearance:none;border:none;background:rgba(255,255,255,.2);color:#fff;padding:6px 12px;border-radius:8px;font-weight:700;cursor:pointer}
+#levels-memo .x:hover{background:rgba(255,255,255,.35)}
+#levels-memo .bd{padding:18px 24px;max-height:72vh;overflow:auto;background:#f9fafb;color:#111827;line-height:1.6;font-size:15px}
+#levels-memo .card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:14px 18px;margin-bottom:14px;box-shadow:0 2px 4px rgba(0,0,0,.04)}
+#levels-memo .card h5{margin:0 0 6px;color:#1f4db8;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.4px}
+#levels-memo .card p{margin:0 0 6px;font-size:14.5px}
+#levels-memo .note{font-size:13px;color:#6b7280;margin-top:6px;border-left:3px solid #dbeafe;padding-left:8px}
