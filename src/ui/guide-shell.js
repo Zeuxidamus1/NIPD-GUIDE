@@ -386,6 +386,13 @@ function secureExternalLinks() {
   }).observe(document.body, { childList: true, subtree: true });
 }
 
+function normalizeCaseLawTrigger() {
+  const button = document.querySelector("#tab-btn-caselaw-REMOVED");
+  button?.classList.remove("active");
+  button?.removeAttribute("aria-current");
+}
+
+normalizeCaseLawTrigger();
 const search = buildSearch();
 enhanceHeader(search.openSearch);
 enhanceModals();

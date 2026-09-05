@@ -12,6 +12,19 @@
 
 html.has-modal { overflow: hidden; }
 
+/* The Case Law control opens a library; it is not a selectable guide tab. */
+.tabs #tab-btn-caselaw-REMOVED {
+  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
+  box-shadow: none;
+}
+.tabs #tab-btn-caselaw-REMOVED:hover {
+  border-color: var(--line);
+  background: var(--navy-50);
+  color: var(--navy-900);
+}
+
 .header-search {
   min-height: 40px;
   display: inline-flex;
