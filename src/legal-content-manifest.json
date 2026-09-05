@@ -1,0 +1,216 @@
+{
+  "sourceCommit": "231ce576ef090840dc9fe12fb7a98856159ff47c",
+  "originalIndexSha256": "35988148766d06756893940137bf980e93ff7f0140871af895dcd4259d0a69db",
+  "blocks": [
+    {
+      "index": 2,
+      "file": "src/legacy/core-app.js",
+      "characters": 81853,
+      "sha256": "490c45d59fd5f10d273baadf38c65ca8e5a1f81f37b9de5352679737fde14e4f"
+    },
+    {
+      "index": 3,
+      "file": "src/features/drug-slang.js",
+      "characters": 47172,
+      "sha256": "851b858186669bd468eab029b00c7253689997f68bdf19f779d7a5e03e97240a"
+    },
+    {
+      "index": 5,
+      "file": "src/legal/case-law-library.js",
+      "characters": 2036,
+      "sha256": "b6cab37b743068d83192ecaccba4964433ae36b69ac3be5df8ba463a30f3ddcd"
+    },
+    {
+      "index": 6,
+      "file": "src/legal/case-law-library.js",
+      "characters": 4597,
+      "sha256": "871b36735a9ac7eee92f11bdc83bbbc33d1b6db626bf5c3ae8ff068ed37cc056"
+    },
+    {
+      "index": 7,
+      "file": "src/legal/case-law-library.js",
+      "characters": 1733,
+      "sha256": "f5d8fb65ccf6b79acecc0fe478e04db7ac2bfa80aead5135b0c09e50d22bd05c"
+    },
+    {
+      "index": 8,
+      "file": "src/legal/case-law-library.js",
+      "characters": 1495,
+      "sha256": "9c4b33cac334b347678894c5cfca473c74d2e6f410728c1fb94e66f3a2e7742a"
+    },
+    {
+      "index": 9,
+      "file": "src/legal/case-law-library.js",
+      "characters": 4026,
+      "sha256": "d13e4a81ebff0259955964cbe8d03c5f4c71c002a083dea7b788d8bc6494435c"
+    },
+    {
+      "index": 10,
+      "file": "src/legal/case-law-library.js",
+      "characters": 8132,
+      "sha256": "7a00c6a258cc7f4be8c9693f0a8875251bb791ae17551ab4fbc27e1966d3d6dd"
+    },
+    {
+      "index": 11,
+      "file": "src/legal/case-law-library.js",
+      "characters": 10713,
+      "sha256": "688f48eeb99aa4baf1b7d29e24323bec37e92ab5dd5e4a0135a4f0afb2f120e2"
+    },
+    {
+      "index": 12,
+      "file": "src/legal/reference-library.js",
+      "characters": 36197,
+      "sha256": "e8f32cdf96c5eceff50c1b0dbb54947a797a10c34d8d71fd6b9f57699f45c8fb"
+    },
+    {
+      "index": 13,
+      "file": "src/legal/reference-library.js",
+      "characters": 8689,
+      "sha256": "a08500331e61609ba22836cd9dc3fc2760235a6c9fbc6bbe50b56d2bc8c3631d"
+    },
+    {
+      "index": 14,
+      "file": "src/legal/reference-library.js",
+      "characters": 17205,
+      "sha256": "a6cb57d9491f8dbf619a8c849957af1924db2383ce69b6d25c8fd2bdb67a767a"
+    },
+    {
+      "index": 15,
+      "file": "src/legal/reference-library.js",
+      "characters": 439200,
+      "sha256": "3c90860072f4f083eae28215f6da147d4ca49942e6e519f426583e28c27a7e81"
+    },
+    {
+      "index": 16,
+      "file": "src/legal/passenger-identification.js",
+      "characters": 9156,
+      "sha256": "6e93e09d2c76f6a160cd2b55ea3260290f86a3bd2c8caf1fc3476b30d203a2f8"
+    },
+    {
+      "index": 17,
+      "file": "src/features/interaction-compatibility.js",
+      "characters": 1010,
+      "sha256": "29d70cf34c714cb347f513c01c9b9e733951bc4a5b7b6db68e3ca292a4266dfb"
+    },
+    {
+      "index": 18,
+      "file": "src/features/interaction-compatibility.js",
+      "characters": 1142,
+      "sha256": "dedbf4fbfddbe66f13dc94bb09696f8dbf8cf628da6c06d2ffb50343f5dd6e01"
+    },
+    {
+      "index": 19,
+      "file": "src/features/interaction-compatibility.js",
+      "characters": 1678,
+      "sha256": "dc172c14d7c4f44f866c7427dc35bf776f79e05585035456192f7fa917b70890"
+    },
+    {
+      "index": 20,
+      "file": "src/features/interaction-compatibility.js",
+      "characters": 1461,
+      "sha256": "49cf20537e6654c42bb8aa87dc7aaa6d353e57343b17f824010cc5ff64823a70"
+    },
+    {
+      "index": 21,
+      "file": "src/features/interaction-compatibility.js",
+      "characters": 1220,
+      "sha256": "46ae7cf6cfe1f122ba766fb636a1d90ad33ef70b4fdb6686c9c22eac6700c9f0"
+    },
+    {
+      "index": 22,
+      "file": "src/features/interaction-compatibility.js",
+      "characters": 1883,
+      "sha256": "cbaee0136c197f79d4b16d043dfcdfa6a525a1616a0b3a7aed23b67cea837a84"
+    },
+    {
+      "index": 23,
+      "file": "src/features/interaction-compatibility.js",
+      "characters": 1742,
+      "sha256": "688fb1dc5dc92383c8c496ed3852e63fa3d4ba753ade5dd8f2bc8c951ae44c8b"
+    },
+    {
+      "index": 24,
+      "file": "src/features/case-law-directory.js",
+      "characters": 1705,
+      "sha256": "df4b391b2fe4b31c876f4ba025abf5be00711c39267de2882d41afecd768acba"
+    },
+    {
+      "index": 25,
+      "file": "src/features/case-law-directory.js",
+      "characters": 1393,
+      "sha256": "073001ebaaca7b992148c7d1128d0bde8192e9f939a8a5c75231fdcd8a894f2c"
+    },
+    {
+      "index": 26,
+      "file": "src/legal/tactical-memos.js",
+      "characters": 16918,
+      "sha256": "6117f297405bf6122cb73cd16d79edc9a52483ba226c4664f6a3b55f02eba9fd"
+    },
+    {
+      "index": 27,
+      "file": "src/legal/tactical-memos.js",
+      "characters": 10965,
+      "sha256": "a164e6653f77598f86ac9943868e147b1f9cc32ca8ea5ee0f19951c770bbbbbd"
+    },
+    {
+      "index": 28,
+      "file": "src/legal/tactical-memos.js",
+      "characters": 637,
+      "sha256": "f50eed1a332dea87b7035ed279e06c91585eed0b3b4b0484abb1be763b897d5e"
+    },
+    {
+      "index": 29,
+      "file": "src/legal/tactical-memos.js",
+      "characters": 5578,
+      "sha256": "053e4ac49454d8ce41ce7cba3a7c9337d175669dc2447b78f136abd27627a95a"
+    },
+    {
+      "index": 30,
+      "file": "src/legal/tactical-memos.js",
+      "characters": 599,
+      "sha256": "ad6f0cb551a10e16bb79649efffb813ce62f7df47b8defeac31ed6c412eac6d7"
+    },
+    {
+      "index": 31,
+      "file": "src/legal/tactical-memos.js",
+      "characters": 3808,
+      "sha256": "686756812fe0ca535789ec81512968597e58538558a5ab60031c26319df1a810"
+    },
+    {
+      "index": 32,
+      "file": "src/legal/tactical-memos.js",
+      "characters": 603,
+      "sha256": "d462d2f815b97e1a5d0bdf8e718cbcb28995d390890c37d497ab274fcf377da4"
+    },
+    {
+      "index": 33,
+      "file": "src/legal/tactical-memos.js",
+      "characters": 2366,
+      "sha256": "18e654f9a2d11f8e48e967725cff24ca298e4a2aa3a662e613b148c91d7860e4"
+    },
+    {
+      "index": 34,
+      "file": "src/legal/tactical-memos.js",
+      "characters": 4053,
+      "sha256": "d59bb6b98a0d998204d484ad8fbe6201537b2b6a76c28ebffffa3c429943621d"
+    },
+    {
+      "index": 35,
+      "file": "src/legal/tactical-memos.js",
+      "characters": 2704,
+      "sha256": "85dd1ccac012f165a63402a188bf175e552bb844053d636bf2731bb0f234c34e"
+    },
+    {
+      "index": 36,
+      "file": "src/legal/tactical-memos.js",
+      "characters": 1253,
+      "sha256": "305de462c36e45e89df7720d8a72f6e29145b265ffc577cf61d92ef898f35be3"
+    },
+    {
+      "index": 37,
+      "file": "src/legal/tactical-memos.js",
+      "characters": 21310,
+      "sha256": "31030300bb6bbc22eb6be69eecbbd59527557681736e1e42e1025b6b73635463"
+    }
+  ]
+}
