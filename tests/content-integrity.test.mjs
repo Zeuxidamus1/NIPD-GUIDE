@@ -25,7 +25,11 @@ test("every preserved legal/reference block matches its source fingerprint", asy
     const match = source.match(pattern);
     assert.ok(match, `preserved block ${block.index} is present in ${block.file}`);
 
-    const digest = createHash("sha256").update(match[1]).digest("hex");
+    // The source originated on Windows, while CI checks it out on Linux.
+    // Canonical CRLF hashing keeps the legal-content check strict without
+    // treating Git's platform-specific line endings as content changes.
+    const canonicalBlock = match[1].replace(/\r?\n/g, "\r\n");
+    const digest = createHash("sha256").update(canonicalBlock).digest("hex");
     assert.equal(digest, block.sha256, `block ${block.index} content changed`);
   }
 });
