@@ -14,6 +14,7 @@ try {
   await import("./legal/reference-library.js");
   await import("./legal/passenger-identification.js");
   await import("./features/interaction-compatibility.js");
+  await import("./features/marijuana-paraphernalia.js");
   await import("./features/case-law-directory.js");
   await import("./legal/tactical-memos.js");
   await import("./ui/guide-shell.js");
