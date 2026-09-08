@@ -267,7 +267,20 @@ a { color: var(--navy-700); }
   margin-top: 14px;
 }
 .marijuana-paraphernalia__other[hidden] { display: none; }
+.marijuana-paraphernalia-step > h3 { margin: 0; font-size: 1.08rem; }
+.marijuana-paraphernalia-step__intro { margin: 5px 0 0; }
+.marijuana-paraphernalia__followups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.marijuana-paraphernalia__followups[hidden] { display: none; }
+.marijuana-paraphernalia--secondary { height: 100%; margin-top: 8px; background: #fff; }
+.marijuana-paraphernalia__reference { margin: 14px 2px 0; padding: 12px 14px; border-left: 3px solid var(--accent); background: #fff8ed; }
+.marijuana-paraphernalia__validation { min-height: 1.3em; margin: 10px 2px 0; color: var(--danger); font-weight: 700; }
+.marijuana-paraphernalia__validation:empty { display: none; }
 .marijuana-paraphernalia-summary > h3 { margin-bottom: 6px; }
+.marijuana-charge-card { display: grid; gap: 5px; }
+.marijuana-charge-card__note { margin: 5px 0 0; padding-top: 9px; border-top: 1px solid var(--line); }
+.marijuana-charge-grade { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 999px; color: #fff; font-size: 0.78rem; font-weight: 800; }
+.marijuana-charge-grade.is-misdemeanor { background: #2e6697; }
+.marijuana-charge-grade.is-felony { background: #a23c34; }
 
 .input-row { display: grid; grid-template-columns: minmax(160px, 1fr) minmax(180px, 260px); gap: 14px; align-items: center; margin-bottom: 12px; }
 .input {
@@ -373,6 +386,7 @@ mark { padding: 0.05em 0.15em; background: #f7e5a7; color: inherit; }
   .page-intro { grid-template-columns: 1fr; gap: 16px; }
   .page-summary { max-width: 42rem; }
   .tabs { top: 74px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .marijuana-paraphernalia__followups { grid-template-columns: 1fr; }
   .input-row { grid-template-columns: 1fr; gap: 6px; }
   .input-row > div:last-child { width: 100%; }
   .modal-backdrop, .clx-backdrop, #levels-memo-backdrop { align-items: flex-end; padding: 0; }

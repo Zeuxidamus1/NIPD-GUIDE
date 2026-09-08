@@ -51,4 +51,11 @@ test("marijuana workflow includes the paraphernalia multi-select", () => {
   assert.match(marijuanaParaphernalia, /aria-pressed/);
   assert.match(marijuanaParaphernalia, /state\.selected\.has\("Other"\)/);
   assert.match(marijuanaParaphernalia, /marijuana-paraphernalia__other/);
+  assert.match(marijuanaParaphernalia, /summaryCard\.hidden = true/);
+  assert.match(marijuanaParaphernalia, /Review Charges/);
+  assert.match(marijuanaParaphernalia, /R\.S\. 40:1023\(C\)/);
+  assert.match(marijuanaParaphernalia, /R\.S\. 40:1025\(E\)/);
+  assert.match(marijuanaParaphernalia, /R\.S\. 40:966\(A\)\(1\)/);
+  assert.match(marijuanaParaphernalia, /grade: "Misdemeanor"/);
+  assert.match(marijuanaParaphernalia, /grade: "Felony"/);
 });
