@@ -1031,8 +1031,11 @@ const SUBS={
 
         (step===7) && h(Box,{title:"Weapon details"},
           h(Row,{label:"Handguns (quantity)"},
-            h("input",{className:"input",type:"number",min:"0",step:"1",
-              value:handgunCount,onChange:e=>onHandgunCountChange(e.target.value)})
+            h("div",{className:"pills",style:{display:"flex",flexWrap:"wrap",gap:"8px"}},
+              [0,1,2,3,4,5].map(n=>h("button",{type:"button",key:n,
+                className:"pill toggle "+(handgunCount===n?"active":""),
+                onClick:()=>onHandgunCountChange(n)},String(n)))
+            )
           ),
           (handgunCount>1)
             ? h(React.Fragment,null,
@@ -1055,8 +1058,11 @@ const SUBS={
               : null,
 
           h(Row,{label:"Rifles (quantity)"},
-            h("input",{className:"input",type:"number",min:"0",step:"1",
-              value:rifleCount,onChange:e=>onRifleCountChange(e.target.value)})
+            h("div",{className:"pills",style:{display:"flex",flexWrap:"wrap",gap:"8px"}},
+              [0,1,2,3,4,5].map(n=>h("button",{type:"button",key:n,
+                className:"pill toggle "+(rifleCount===n?"active":""),
+                onClick:()=>onRifleCountChange(n)},String(n)))
+            )
           ),
           (rifleCount>1)
             ? h(React.Fragment,null,
