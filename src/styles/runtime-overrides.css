@@ -307,3 +307,37 @@ html.has-modal { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .weapon-quantity-options > .pill { transition: none; }
 }
+
+
+/* Weapon quantity controls: override inherited pill flex sizing and prevent overlap. */
+.input-row:has(.weapon-quantity-options) {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+.input-row:has(.weapon-quantity-options) > div:last-child {
+  min-width: 0;
+  width: 100%;
+}
+.weapon-quantity-options {
+  display: grid !important;
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  justify-content: stretch !important;
+  align-items: stretch !important;
+  max-width: 100% !important;
+  overflow: visible;
+}
+.weapon-quantity-options > button.pill {
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  position: static !important;
+  flex: none !important;
+  grid-column: auto !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 8px 0 !important;
+  border-radius: 10px !important;
+  line-height: 1.25;
+}
