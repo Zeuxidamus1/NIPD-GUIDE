@@ -341,3 +341,14 @@ html.has-modal { overflow: hidden; }
   border-radius: 10px !important;
   line-height: 1.25;
 }
+
+
+/* Narcotics weight converter: readable on mobile and in patrol-car browsers. */
+.weight-converter__inputs { display:grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap:12px; margin-bottom:14px; }
+.weight-converter__field { display:flex; flex-direction:column; gap:7px; font-weight:650; min-width:0; }
+.weight-converter__field input, .weight-converter__field select { box-sizing:border-box; width:100%; min-width:0; min-height:46px; padding:10px 12px; border:1px solid #c9c0b4; border-radius:10px; background:#fff; color:#132640; font:inherit; }
+.weight-converter__results { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:9px; }
+.weight-converter__result { display:flex; flex-direction:column; gap:5px; padding:12px; border:1px solid #ddd6cc; border-radius:10px; background:#faf9f7; min-width:0; }
+.weight-converter__result span { font-size:.85rem; color:#526174; }
+.weight-converter__result strong { overflow-wrap:anywhere; font-variant-numeric:tabular-nums; }
+@media(max-width:480px){ .weight-converter__inputs { grid-template-columns:minmax(0,1fr); } }
