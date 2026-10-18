@@ -1031,7 +1031,7 @@ const SUBS={
 
         (step===7) && h(Box,{title:"Weapon details"},
           h(Row,{label:"Handguns (quantity)"},
-            h("div",{className:"pills",style:{display:"flex",flexWrap:"wrap",gap:"8px"}},
+            h("div",{className:"pills weapon-quantity-options",style:{display:"grid",gridTemplateColumns:"repeat(6,minmax(0,1fr))",gap:"6px",width:"100%",maxWidth:"720px"}},
               [0,1,2,3,4,5].map(n=>h("button",{type:"button",key:n,
                 className:"pill toggle "+(handgunCount===n?"active":""),
                 onClick:()=>onHandgunCountChange(n)},String(n)))
@@ -1058,7 +1058,7 @@ const SUBS={
               : null,
 
           h(Row,{label:"Rifles (quantity)"},
-            h("div",{className:"pills",style:{display:"flex",flexWrap:"wrap",gap:"8px"}},
+            h("div",{className:"pills weapon-quantity-options",style:{display:"grid",gridTemplateColumns:"repeat(6,minmax(0,1fr))",gap:"6px",width:"100%",maxWidth:"720px"}},
               [0,1,2,3,4,5].map(n=>h("button",{type:"button",key:n,
                 className:"pill toggle "+(rifleCount===n?"active":""),
                 onClick:()=>onRifleCountChange(n)},String(n)))
