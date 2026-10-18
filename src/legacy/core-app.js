@@ -1100,23 +1100,34 @@ const SUBS={
           )
         ),
 
-        (step===9) && h(Box,{title:"Ten-year cleansing / crimes of violence"},
-          h(Row,{label:"Is it more than 10 years since conviction or completion of supervision?"},
-            h("div",{className:"pills"},
-              h("button",{className:"pill toggle "+(tenYearClear===true?"active":""),onClick:()=>setTenYearClear(true)},"More than 10 years"),
-              h("button",{className:"pill toggle "+(tenYearClear===false?"active":""),onClick:()=>setTenYearClear(false)},"Less than 10 years")
+        (step===9) && h(Box,{title:"Prior felony — firearm eligibility"},
+          h("p",{className:"small muted",style:{margin:"4px 0 14px"}},
+            "Louisiana R.S. 14:95.1(C): The 10-year period is measured from completion of the sentence, probation, parole, or suspension of sentence—not simply the conviction date. A subsequent felony conviction may affect eligibility. Federal and other firearm restrictions must be evaluated separately."
+          ),
+          h(Row,{label:"Have at least 10 years passed since completion of the entire sentence and supervision, with no subsequent felony conviction?"},
+            h("div",{className:"pills",role:"group","aria-label":"Ten-year eligibility assessment"},
+              h("button",{type:"button","aria-pressed":tenYearClear===true,className:"pill toggle "+(tenYearClear===true?"active":""),onClick:()=>setTenYearClear(true)},"Yes"),
+              h("button",{type:"button","aria-pressed":tenYearClear===false,className:"pill toggle "+(tenYearClear===false?"active":""),onClick:()=>setTenYearClear(false)},"No"),
+              h("button",{type:"button","aria-pressed":tenYearClear==="unknown",className:"pill toggle "+(tenYearClear==="unknown"?"active":""),onClick:()=>setTenYearClear("unknown")},"Unknown")
             )
+          ),
+          (tenYearClear==="unknown") && h("p",{className:"small muted",role:"status"},
+            "Verify the sentencing and supervision records before making a charging determination. An unknown answer does not establish firearm eligibility or a violation."
+          ),
+          (tenYearClear===true) && h("p",{className:"small muted",role:"status"},
+            "The Louisiana 10-year exception may apply; this does not establish lawful possession under federal law or other restrictions."
           ),
           (tenYearClear===false) && h(Row,{label:"Do prior felonies fall under R.S. 14:2 — Crimes of Violence?"},
             h("div",{className:"pills"},
-              h("button",{className:"pill toggle "+(violentFelony?"active":""),onClick:()=>setViolentFelony(true)},"Yes"),
-              h("button",{className:"pill toggle "+(!violentFelony?"active":""),onClick:()=>setViolentFelony(false)},"No")
+              h("button",{type:"button","aria-pressed":violentFelony===true,className:"pill toggle "+(violentFelony?"active":""),onClick:()=>setViolentFelony(true)},"Yes"),
+              h("button",{type:"button","aria-pressed":violentFelony===false,className:"pill toggle "+(!violentFelony?"active":""),onClick:()=>setViolentFelony(false)},"No")
             )
           ),
           h("div",{className:"navrow"},
             h("button",{className:"btn ghost",style:{flex:1},onClick:goBack},"Back"),
             h("button",{className:"btn",style:{flex:1},onClick:()=>setStep(10),disabled:(tenYearClear===null)},"Continue")
-          )
+          ),
+          (tenYearClear===null) && h("p",{className:"small muted",style:{marginTop:"8px"}},"Select Yes, No, or Unknown to continue.")
         ),
 
         (step===10) && h(Box,{title:"Summary"},
@@ -1126,6 +1137,7 @@ const SUBS={
               h("li",null,h("strong",null,"Title chosen:")," Title 32")
             ),
 
+            (isFelon===true && tenYearClear==="unknown") && h("p",{className:"small muted",role:"status"},"Firearm eligibility unresolved: confirm sentencing, supervision, subsequent convictions, and applicable federal restrictions before relying on suggested charges."),
             h("div",{className:"hr"}), h("h3",null,"Controlled Dangerous Substance Charges"),
             (function(){
               const pickedList = Array.isArray(picked) ? picked : [];
