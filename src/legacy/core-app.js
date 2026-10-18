@@ -1615,27 +1615,27 @@ function PillLookup(){
     function WeightConverter(){
       const [amount,setAmount]=React.useState("");
       const [unit,setUnit]=React.useState("g");
-      const factors={mg:0.001,g:1,kg:1000,oz:28.349523125,lb:453.59237};
+      const factors={g:1,oz:28.349523125,lb:453.59237};
       const n=Number(amount);
       const valid=amount.trim()!=="" && Number.isFinite(n) && n>=0;
       const grams=valid?n*factors[unit]:null;
       const format=(value)=>new Intl.NumberFormat("en-US",{maximumFractionDigits:6}).format(value);
       return h("div",{className:"card weight-converter",style:{padding:"16px",marginTop:"16px"}},
         h("h3",{style:{margin:"0 0 6px"}},"Weight Converter"),
-        h("p",{className:"small muted",style:{margin:"0 0 14px"}},"Convert between milligrams, grams, kilograms, ounces, and pounds. Calculations are informational; use verified evidence weights for reports and charging decisions."),
+        h("p",{className:"small muted",style:{margin:"0 0 14px"}},"Convert between grams, ounces, and pounds. Calculations are informational; use verified evidence weights for reports and charging decisions."),
         h("div",{className:"weight-converter__inputs"},
           h("label",{className:"weight-converter__field"},h("span",null,"Weight"),
             h("input",{type:"number",min:"0",step:"any",inputMode:"decimal",placeholder:"Enter weight",value:amount,onChange:e=>setAmount(e.target.value),"aria-label":"Weight to convert"})
           ),
           h("label",{className:"weight-converter__field"},h("span",null,"From unit"),
             h("select",{value:unit,onChange:e=>setUnit(e.target.value),"aria-label":"Original weight unit"},
-              [["mg","Milligrams (mg)"],["g","Grams (g)"],["kg","Kilograms (kg)"],["oz","Ounces (oz)"],["lb","Pounds (lb)"]].map(([value,label])=>h("option",{value,key:value},label))
+              [["g","Grams (g)"],["oz","Ounces (oz)"],["lb","Pounds (lb)"]].map(([value,label])=>h("option",{value,key:value},label))
             )
           )
         ),
         amount.trim()!==""&&!valid?h("p",{role:"alert",className:"small"},"Enter a valid nonnegative weight."):null,
         h("div",{className:"weight-converter__results","aria-live":"polite"},
-          [["mg","Milligrams"],["g","Grams"],["kg","Kilograms"],["oz","Ounces"],["lb","Pounds"]].map(([key,label])=>
+          [["g","Grams"],["oz","Ounces"],["lb","Pounds"]].map(([key,label])=>
             h("div",{className:"weight-converter__result",key},
               h("span",null,label),
               h("strong",null,valid?format(grams/factors[key])+" "+key:"—")
