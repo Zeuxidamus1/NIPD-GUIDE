@@ -1,3 +1,5 @@
+import { FirearmRetrieval } from "../ui/firearm-retrieval.js";
+
 /** Preserved legal/reference behavior extracted from the original single-file application. */
 /* --- LEGACY SCRIPT BLOCK 2 START --- */
 
@@ -811,6 +813,7 @@ function SearchablePicker({ title="Select charge", items=[], onPick, onClose }){
 
 function StopInteractive(){
       const [showTSCaseLaw,setShowTSCaseLaw]=React.useState(false);
+      const [showFirearmRetrieval, setShowFirearmRetrieval] = React.useState(false);
       const [step,setStep]=React.useState(0);
       const [isStop,setIsStop]=React.useState(true);
       const [title,setTitle]=React.useState("32");
@@ -907,7 +910,11 @@ const SUBS={
           h("div",{className:"navrow"},
             h("button",{className:"btn",style:{flex:1},onClick:()=>{ setIsStop(true); setTitle("32"); setStep(2); }},"Begin")
           ),
-          h("div",{style:{marginTop:"12px",display:"flex",gap:"8px",flexWrap:"wrap"}},  h("button",{className:"btn",onClick:()=>setShowTSCaseLaw(v=>!v)},"Case Law Reference For Traffic Stops"),  h("button",{className:"btn",onClick:()=>{    if (typeof window.__openIdentPassengersModal==="function"){ window.__openIdentPassengersModal(); }    else { try{ window.dispatchEvent(new Event("build-ident-passengers")); }catch(_e){} }  }},"Identifying Passengers")),
+          h("div",{style:{marginTop:"12px",display:"flex",gap:"8px",flexWrap:"wrap"}},  h("button",{className:"btn",onClick:()=>setShowTSCaseLaw(v=>!v)},"Case Law Reference For Traffic Stops"),  h("button",{className:"btn",onClick:()=>{    if (typeof window.__openIdentPassengersModal==="function"){ window.__openIdentPassengersModal(); }    else { try{ window.dispatchEvent(new Event("build-ident-passengers")); }catch(_e){} }  }},"Identifying Passengers"),
+            h("button", { type: "button", className: "btn", "aria-expanded": showFirearmRetrieval,
+              onClick: () => setShowFirearmRetrieval(open => !open) }, "Firearm Retrieval")
+          ),
+          showFirearmRetrieval && h(FirearmRetrieval),
           showTSCaseLaw && h("div",{className:"card",style:{padding:"14px",marginTop:"10px"}},
             h("h3",null,"Core U.S. Supreme Court Cases"),
             h("ul",null,
